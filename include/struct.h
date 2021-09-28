@@ -35,4 +35,4 @@ typedef struct DataSet_t {
 	Meta        meta                                ;
 } DataSet ;
 
-char *print_line();
+extern char *print_line(int , char*[]);

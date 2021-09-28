@@ -1,6 +1,6 @@
 #include <api.h>
 
-char *print_line(){
+char *print_line(int argc, char *argv[]){
 	char *seg;
 	char message_fmt[] = "GET %s HTTP/1.0\r\nHost: %s\r\nAuthorization: KakaoAK %s\r\n\r\n";
 	char str[READLEN];
