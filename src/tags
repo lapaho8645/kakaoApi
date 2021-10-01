@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CFILES	Makefile	/^CFILES = main.c	\\$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -w $(INC)$/;"	m
+INC	Makefile	/^INC = -I..\/include$/;"	m
+LFLAGS	Makefile	/^LFLAGS = -w -ljansson$/;"	m
+OBJS	Makefile	/^OBJS = $(CFILES:.c=.o)$/;"	m
+TARGET	Makefile	/^TARGET = parser.out$/;"	m
+dataSet	main.c	/^DataSet dataSet;$/;"	v
+error_print	main.c	/^int error_print(char *str){$/;"	f
+i	main.c	/^size_t i = 0;$/;"	v
+load_json	main.c	/^json_t *load_json(const char *text) {$/;"	f
+main	main.c	/^int main(int argc, char *argv[])$/;"	f
+parse_json	parse.c	/^DataSet parse_json(json_t *element){$/;"	f
+print_json_array	main.c	/^void print_json_array(json_t *element) {$/;"	f
+print_json_aux	main.c	/^void print_json_aux(json_t *element) {$/;"	f
+print_json_false	main.c	/^void print_json_false(json_t *element) {$/;"	f
+print_json_integer	main.c	/^void print_json_integer(json_t *element) {$/;"	f
+print_json_null	main.c	/^void print_json_null(json_t *element, int indent) {$/;"	f
+print_json_object	main.c	/^void print_json_object(json_t *element) {$/;"	f
+print_json_real	main.c	/^void print_json_real(json_t *element) {$/;"	f
+print_json_string	main.c	/^void print_json_string(json_t *element) {$/;"	f
+print_json_true	main.c	/^void print_json_true(json_t *element) {$/;"	f
+print_line	socket.c	/^char *print_line(int argc, char *argv[]){$/;"	f

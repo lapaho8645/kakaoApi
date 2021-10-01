@@ -1,3 +1,5 @@
+#define DEFAULT_SIZE 512
+#define COMM_MAX 5
 typedef struct Document_t {
 	char        id                  [DEFAULT_SIZE]  ;
 	char        place_name          [DEFAULT_SIZE]  ;
@@ -35,4 +37,3 @@ typedef struct DataSet_t {
 	Meta        meta                                ;
 } DataSet ;
 
-extern char *print_line(int , char*[]);

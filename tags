@@ -1,0 +1,61 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CFILES	src/Makefile	/^CFILES = main.c	\\$/;"	m
+CFLAGS	src/Makefile	/^CFLAGS = -w $(INC)$/;"	m
+COMM_MAX	include/struct.h	2;"	d
+DEFAULT_SIZE	include/struct.h	1;"	d
+DataSet	include/struct.h	/^} DataSet ;$/;"	t	typeref:struct:DataSet_t
+DataSet_t	include/struct.h	/^typedef struct DataSet_t {$/;"	s
+Document	include/struct.h	/^} Document ;$/;"	t	typeref:struct:Document_t
+Document_t	include/struct.h	/^typedef struct Document_t {$/;"	s
+INC	src/Makefile	/^INC = -I..\/include$/;"	m
+LFLAGS	src/Makefile	/^LFLAGS = -w -ljansson$/;"	m
+MAX_CHARS	include/api.h	15;"	d
+MSGLEN	include/api.h	13;"	d
+Meta	include/struct.h	/^} Meta ;$/;"	t	typeref:struct:Meta_t
+Meta_t	include/struct.h	/^typedef struct Meta_t {$/;"	s
+OBJS	src/Makefile	/^OBJS = $(CFILES:.c=.o)$/;"	m
+READLEN	include/api.h	14;"	d
+Region	include/struct.h	/^} Region ;$/;"	t	typeref:struct:Region_t
+Region_t	include/struct.h	/^typedef struct Region_t {$/;"	s
+SameName	include/struct.h	/^} SameName ;$/;"	t	typeref:struct:SameName_t
+SameName_t	include/struct.h	/^typedef struct SameName_t {$/;"	s
+TARGET	src/Makefile	/^TARGET = parser.out$/;"	m
+address_name	include/struct.h	/^	char        address_name        [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+category_group_code	include/struct.h	/^	char        category_group_code [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+category_group_name	include/struct.h	/^	char        category_group_name [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+category_name	include/struct.h	/^	char        category_name       [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+dataSet	include/api.h	/^DataSet *dataSet;$/;"	v
+distance	include/struct.h	/^	char        distance            [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+documents	include/struct.h	/^	Document    documents           [COMM_MAX]      ;$/;"	m	struct:DataSet_t
+error_print	src/main.c	/^int error_print(char *str){$/;"	f
+i	src/main.c	/^size_t i = 0;$/;"	v
+id	include/struct.h	/^	char        id                  [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+is_end	include/struct.h	/^	short       is_end                              ;$/;"	m	struct:Meta_t
+keyword	include/struct.h	/^	char        keyword             [DEFAULT_SIZE]  ;$/;"	m	struct:SameName_t
+load_json	src/main.c	/^json_t *load_json(const char *text) {$/;"	f
+main	src/main.c	/^int main(int argc, char *argv[])$/;"	f
+meta	include/struct.h	/^	Meta        meta                                ;$/;"	m	struct:DataSet_t
+pageable_count	include/struct.h	/^	int         pageable_count                      ;$/;"	m	struct:Meta_t
+parse_json	src/parse.c	/^void parse_json(json_t *element){$/;"	f
+phone	include/struct.h	/^	char        phone               [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+place_name	include/struct.h	/^	char        place_name          [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+place_url	include/struct.h	/^	char        place_url           [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+print_json_false	src/main.c	/^void print_json_false(json_t *element) {$/;"	f
+print_json_integer	src/main.c	/^void print_json_integer(json_t *element) {$/;"	f
+print_json_null	src/main.c	/^void print_json_null(json_t *element, int indent) {$/;"	f
+print_json_real	src/main.c	/^void print_json_real(json_t *element) {$/;"	f
+print_json_true	src/main.c	/^void print_json_true(json_t *element) {$/;"	f
+print_line	src/socket.c	/^char *print_line(int argc, char *argv[]){$/;"	f
+region	include/struct.h	/^	char        region              [DEFAULT_SIZE]  ;$/;"	m	struct:Region_t
+regions	include/struct.h	/^	Region      regions             [COMM_MAX]      ;$/;"	m	struct:SameName_t
+road_address_name	include/struct.h	/^	char        road_address_name   [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+same_name	include/struct.h	/^	SameName    same_name                           ;$/;"	m	struct:Meta_t
+selected_region	include/struct.h	/^	char        selected_region     [DEFAULT_SIZE]  ;$/;"	m	struct:SameName_t
+total_count	include/struct.h	/^	int         total_count                         ;$/;"	m	struct:Meta_t
+x	include/struct.h	/^	char        x                   [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t
+y	include/struct.h	/^	char        y                   [DEFAULT_SIZE]  ;$/;"	m	struct:Document_t

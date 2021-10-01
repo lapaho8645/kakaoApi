@@ -8,9 +8,14 @@
 #include <unistd.h>
 #include <jansson.h>
 
+#include <struct.h>
+
 #define MSGLEN 1024
 #define READLEN 4096
-#define DEFAULT_SIZE 512
-#define COMM_MAX     5
 #define MAX_CHARS (1024 * 8)
+
+DataSet dataSet;
+extern char *print_line(int , char*[]);
+extern void parse_json(json_t *);
+extern void error_print(char *);
 

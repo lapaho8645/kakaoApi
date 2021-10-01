@@ -1,5 +1,8 @@
 #include <api.h>
 
+int sock(char *argv[]){
+
+
 char *print_line(int argc, char *argv[]){
 	char *seg;
 	char message_fmt[] = "GET %s HTTP/1.0\r\nHost: %s\r\nAuthorization: KakaoAK %s\r\n\r\n";
@@ -9,15 +12,15 @@ char *print_line(int argc, char *argv[]){
 	int s, n, left_len, sent_len, recv_len;
 	struct sockaddr_in server_addr;
 	struct hostent *host;
-	char line[MAX_CHARS];
+	static char line[MAX_CHARS];
 	int port;
 	int byte;
 	int i= 0;
 	char *token;
 	if(argc < 4) {
 		printf("usage : %s <Host> <Resource> <API_KEYS>\n", argv[0]);
-		printf("ex) dapi.kakao.com /v2/local/search/keyword.json?query=<query> <API_KEYS>\n");
-		return -1;
+		error_print("ex) dapi.kakao.com /v2/local/search/keyword.json?query=<query> <API_KEYS>\n");
+		
 	}
 
 	if((host=gethostbyname(argv[1]))== NULL){
@@ -25,8 +28,7 @@ char *print_line(int argc, char *argv[]){
 		exit(-1);
 	}
 	if((s=socket(PF_INET, SOCK_STREAM, 0)) < 0) {
-		printf("can not create socket\n");
-		return -1;
+		error_print("can not create socket\n");
 	}
 
 	sprintf(message, message_fmt,argv[2],argv[1], argv[3]);
@@ -36,8 +38,7 @@ char *print_line(int argc, char *argv[]){
 	server_addr.sin_port=htons(80);
 
 	if(connect(s, (struct sockaddr *) &server_addr, sizeof(server_addr)) < 0) {
-		printf("can not connect");
-		return -1;
+		error_print("can not connect");
 	}
 	left_len = strlen(message);
 	sent_len = 0;

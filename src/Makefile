@@ -1,16 +1,18 @@
+TARGET = parser.out
 INC = -I../include
-CFLAGS = -w $(INC)
-LFLAGS = -w -ljansson
+CFLAGS = -Wall -W $(INC)
+LFLAGS = -Wall -W -ljansson
 
 CFILES = main.c	\
 		 socket.c\
+		 parse.c\
 
 OBJS = $(CFILES:.c=.o)
 .c.o : $(CFILES)
 	$(CC) -c $(CFLAGS) $*.c
 
-parser.out: $(OBJS) 
-	$(CC) -o parser.out $(OBJS) $(LFLAGS)
+$(TARGET) : $(OBJS) 
+	$(CC) -o $(TARGET) $(OBJS) $(LFLAGS)
 
 clean :: 
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(TARGET)
