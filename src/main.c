@@ -1,6 +1,6 @@
 #include <api.h>
 
-json_t *load_json(const char *text) {	//
+json_t *load_json(const char *text) {	
 	json_t			 *root;
 	json_error_t 	 error;
 

@@ -37,24 +37,21 @@ void parse_json(json_t *element){
 							strcpy(dataSet.documents[i].x, json_string_value(value));
 						else if(!strcmp(key, "y"))
 							strcpy(dataSet.documents[i].y, json_string_value(value));
-						else{
+						else
 							error_print("key is invalid");
-						}
+						
 					}
 				}
-				else{
+				else
 					error_print("array value is not object");
-				}
 			}
 		}
-		else{
+		else
 			error_print("documents value is not array");
-		}
-
 	}
-	else{
+	else
 		error_print("documents is not found");
-	}
+	
 	if((meTa = json_object_get(element, "meta"))!=NULL){
 		if(json_typeof(meTa) == JSON_OBJECT){
 			json_object_foreach(meTa, key, tmp){
@@ -77,19 +74,15 @@ void parse_json(json_t *element){
 				}
 				else if(!strcmp(key, "total_count"))
 					dataSet.meta.total_count = json_integer_value(value);
-				else{
+				else
 					error_print("key is invalid");
-				}
 			}
 
 		}
-		else{
+		else
 			error_print("meta value is not object");
-		}
 	}
-	else{
+	else
 		error_print("meta is not found");
-	}
-
 }
 

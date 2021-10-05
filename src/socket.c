@@ -1,6 +1,5 @@
 #include <api.h>
 
-int sock(char *argv[]){
 
 
 char *print_line(int argc, char *argv[]){
@@ -13,22 +12,21 @@ char *print_line(int argc, char *argv[]){
 	struct sockaddr_in server_addr;
 	struct hostent *host;
 	static char line[MAX_CHARS];
-	int port;
 	int byte;
 	int i= 0;
 	char *token;
 	if(argc < 4) {
 		printf("usage : %s <Host> <Resource> <API_KEYS>\n", argv[0]);
-		error_print("ex) dapi.kakao.com /v2/local/search/keyword.json?query=<query> <API_KEYS>\n");
+		error_print("ex) dapi.kakao.com /v2/local/search/keyword.json?query=<query> <API_KEYS>");
 		
 	}
 
 	if((host=gethostbyname(argv[1]))== NULL){
-		printf("gethostbyname error\n");
+		error_print("gethostbyname error");
 		exit(-1);
 	}
 	if((s=socket(PF_INET, SOCK_STREAM, 0)) < 0) {
-		error_print("can not create socket\n");
+		error_print("can not create socket");
 	}
 
 	sprintf(message, message_fmt,argv[2],argv[1], argv[3]);
@@ -45,7 +43,7 @@ char *print_line(int argc, char *argv[]){
 	do{
 		byte = write(s, message+sent_len, left_len - sent_len);
 		if(byte < 0)
-			printf("write error\n");
+			error_print("write error");
 		if(byte == 0)
 			break;
 		sent_len += byte;
@@ -58,17 +56,28 @@ char *print_line(int argc, char *argv[]){
 
 	do{
 		memset(buf, 0, sizeof(buf));
-		n = read(s, buf, READLEN);
-		fprintf(stdout,"%s ", buf);
-		if(n < 0)
-			printf("read error\n");
+		n = recv(s, buf, READLEN, MSG_DONTWAIT);
+//		n = read(s, buf, READLEN);
+		if(n < 0){
+		printf("%d\n%s", errno, strerror(errno));
+//			error_print("read error");
+				}
+//		printf("%d======\n", n);
+		fprintf(stdout,"=---=%s ", buf);
+		sprintf(str, "%s%s", str, buf);
+//		if(n < 0){
+//		printf("%d-------------\n%s", errno, strerror(errno));
+//			error_print("read error");
+//				}
 		if(n == 0)
 			break;
-		sprintf(str, "%s%s", str, buf);
 	}while(1);
 
-	seg = strstr(str, "{");
-	sprintf(line, "%s", seg);
+	if((seg = strstr(str, "{"))!=NULL){
+		sprintf(line, "%s", seg);
+	}
+	else
+		error_print("'{' is not found");
 	close(s);
 	return line;
 }

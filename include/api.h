@@ -7,6 +7,7 @@
 #include <netinet/in.h>
 #include <unistd.h>
 #include <jansson.h>
+#include <errno.h>
 
 #include <struct.h>
 
